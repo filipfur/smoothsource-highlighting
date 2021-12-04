@@ -1,0 +1,25 @@
+{
+    "name": "smoothsource",
+    "displayName": "smoothsource",
+    "description": "Source code template files.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.62.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "smoothsource",
+            "aliases": ["smoothsource", "smoothsource"],
+            "extensions": [".smoothsource"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "smoothsource",
+            "scopeName": "source.smoothsource",
+            "path": "./syntaxes/smoothsource.tmLanguage.json"
+        }]
+    }
+}

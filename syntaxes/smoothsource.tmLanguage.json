@@ -1,0 +1,100 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "smoothsource",
+	"patterns": [
+		{
+			"include": "#parameters"
+		},
+		{
+			"include": "#arrays"
+		},
+		{
+			"include": "#conditions"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#segments"
+		}
+	],
+	"repository": {
+		"parameters": {
+			"name": "parameters.smoothsource",
+			"begin": "\\{\\{",
+			"end": "\\}\\}",
+			"patterns": [
+				{
+					"name": "variable.parameter.smoothsource",
+					"match": "(?<=\\{\\{)[a-zA-Z_]+"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#operators"
+				}
+			]
+		},
+		"arrays": {
+			"name": "arrays.smoothsource",
+			"begin": "\\[\\[",
+			"end": "\\]\\]",
+			"patterns": [
+				{
+					"name": "storage.smoothsource",
+					"match": "(?<=\\[\\[)[a-zA-Z_]+"
+				},
+				{
+					"include": "#parameters"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#operators"
+				}
+			]
+		},
+		"conditions": {
+			"name": "conditions.smoothsource",
+			"begin": "\\<\\?",
+			"end": "\\?\\>",
+			"patterns": [
+				{
+					"name": "storage.smoothsource",
+					"match": "(?<=\\<\\?)[a-zA-Z_]+"
+				},
+				{
+					"include": "#parameters"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#operators"
+				}
+			]
+		},
+		"operators":{
+			"name": "keyword.control.smoothsource",
+			"match": ":(begin|end|upperCC|lowerCC|variable|class|datetime)"
+		},
+		"strings": {
+			"name": "string.quoted.double.smoothsource",
+			"begin": "(?<=:[a-z]+)@",
+			"end": "@",
+			"patterns": [
+				{
+					"name": "constant.character.escape.smoothsource",
+					"match": "\\\\."
+				}
+			]
+		},
+		"segments": {
+			"name": "todo.storage.type.smoothsource",
+			"match": "\\]\\]"
+		}
+	},
+	"scopeName": "source.smoothsource"
+}
